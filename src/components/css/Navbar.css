@@ -1,0 +1,38 @@
+.navBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+}
+
+.navBar ul {
+  display: flex;
+  gap: 30px;
+}
+
+.navBar li {
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .navBar {
+    justify-content: flex-start;
+    padding: 20px 10vw;
+    box-shadow: 0 0 20px -10px;
+  }
+
+  .navBar a {
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Cantarell', sans-serif;
+  }
+
+  .nabar h2 {
+    display: block;
+    font-size: 30px !important;
+    font-family: 'Cantarell', sans-serif !important;
+    background: orange;
+  }
+}

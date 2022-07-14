@@ -1,10 +1,16 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
+import Books from './components/Books';
+import Categories from './components/Categories';
+import Navbar from './components/Navbar';
 
-const App = () => {
-  return (
-    <div className="App">  
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <Navbar />
+    <Routes>
+      <Route exact path="/" element={<Books />} />
+      <Route path="categories/*" element={<Categories />} />
+    </Routes>
+  </div>
+);
 
 export default App;
