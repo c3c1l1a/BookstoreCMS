@@ -1,79 +1,75 @@
 .book {
-	display: grid;
-	grid-gap:  10px;
-	grid-template-columns: 1fr 1fr;
-	padding: 10px;
-	box-shadow: 0 0 10px -5px grey;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  box-shadow: 0 0 10px -5px grey;
 }
 
 .details h3 {
-	font-style: italic;
+  font-style: italic;
 }
 
 .details h2 {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .details p {
-	opacity: 0.6;
+  opacity: 0.6;
 }
 
 .action-buttons {
-	display: flex;
-	justify-content: center;
-	grid-column: 1 / 2;
-	grid-row: 3 / 4;
+  display: flex;
+  justify-content: center;
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
 }
 
-.action-buttons button	{
-	border: none;
-	outline: none;
-	background: none;
-	text-decoration: underline;
+.action-buttons button {
+  border: none;
+  outline: none;
+  background: none;
+  text-decoration: underline;
 }
-
-
 
 .current-chapter {
-	grid-column: 2/3;
-	grid-row: 1/2;
+  grid-column: 2/3;
+  grid-row: 1/2;
 }
 
 .update-progress {
-	grid-column: 2/3;
-	grid-row: 3/4;
+  grid-column: 2/3;
+  grid-row: 3/4;
 }
 
 .completion {
-	grid-column: 2/3;
-	grid-row: 2/3;
+  grid-column: 2/3;
+  grid-row: 2/3;
 }
 
-@media (min-width:  786px){
-	.book {
-		grid-template-columns: repeat(4, 1fr);
-		padding: 20px;
-	}
+@media (min-width: 786px) {
+  .book {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+  }
 
-	.action-buttons {
-		grid-column: 1 / 2;
-		grid-row: 2 / 3;
-		justify-content: flex-start;
-	}
+  .action-buttons {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    justify-content: flex-start;
+  }
 
-	.completion {
-		grid-column: 3/4;
-		grid-row: 2/3;
-	}
+  .completion {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
 
-	.current-chapter {
-		grid-column: 4 / 5;
-	}
+  .current-chapter {
+    grid-column: 4 / 5;
+  }
 
-	.update-progress {
-		grid-column: 4/5;
-		grid-row: 2 / 3;
-	}
-
+  .update-progress {
+    grid-column: 4/5;
+    grid-row: 2 / 3;
+  }
 }
-

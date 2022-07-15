@@ -6,14 +6,14 @@
   left: 0;
   top: 0;
   gap: 30px;
-  padding:  20px;
+  padding: 20px;
   box-shadow: 0 0 20px -10px;
 }
 
 .navBar h2 {
   display: block;
   font-size: 20px !important;
-} 
+}
 
 .navBar ul {
   display: flex;
