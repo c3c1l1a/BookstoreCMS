@@ -4,7 +4,6 @@ import './css/Book.css';
 const Book = (props) => {
   const { book } = props;
 
-  console.log(book);
   return (
     <li className='book'>
       <div className='details'>
