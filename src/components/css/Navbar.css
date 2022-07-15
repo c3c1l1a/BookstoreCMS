@@ -5,7 +5,15 @@
   justify-content: center;
   left: 0;
   top: 0;
+  gap: 30px;
+  padding:  20px;
+  box-shadow: 0 0 20px -10px;
 }
+
+.navBar h2 {
+  display: block;
+  font-size: 20px !important;
+} 
 
 .navBar ul {
   display: flex;
@@ -21,7 +29,6 @@
     justify-content: flex-start;
     gap: 50px;
     padding: 20px 10vw;
-    box-shadow: 0 0 20px -10px;
   }
 
   .navBar a {

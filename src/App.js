@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import Books from './components/Books';
 import Categories from './components/Categories';
 import Navbar from './components/Navbar';
+import BookForm from './components/BookForm';
+import './components/css/App.css';
 
 import './components/css/reset.css';
 
@@ -42,12 +44,13 @@ const App = () => {
   });
 
   return (
-    <div className="App">
+    <div className="app">
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Books books={state.books} />} />
         <Route path="categories/*" element={<Categories />} />
       </Routes>
+      <BookForm />
     </div>
   );
 };
