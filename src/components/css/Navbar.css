@@ -19,6 +19,7 @@
 @media (min-width: 768px) {
   .navBar {
     justify-content: flex-start;
+    gap: 50px;
     padding: 20px 10vw;
     box-shadow: 0 0 20px -10px;
   }
@@ -29,10 +30,8 @@
     font-family: 'Cantarell', sans-serif;
   }
 
-  .nabar h2 {
+  .navBar h2 {
     display: block;
     font-size: 30px !important;
-    font-family: 'Cantarell', sans-serif !important;
-    background: orange;
   }
 }

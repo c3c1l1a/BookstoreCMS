@@ -4,3 +4,9 @@
 	gap:  20px;
 	padding: 10px;
 }
+
+@media (min-width:  786px){
+	.books {
+		padding: 5vw 10vw;
+	}	
+}
