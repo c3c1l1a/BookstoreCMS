@@ -1,16 +1,13 @@
-/* eslint-disable */
 import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Books from './components/Books';
 import Categories from './components/Categories';
 import Navbar from './components/Navbar';
 import './components/css/App.css';
-
 import './components/css/reset.css';
 
 const App = () => {
-  const [state, setBook] = useState({
+  const state = {
     books: [
       {
         id: uuidv4(),
@@ -40,7 +37,7 @@ const App = () => {
         currentChapter: 'Introduction',
       },
     ],
-  });
+  };
 
   return (
     <div className="app">
