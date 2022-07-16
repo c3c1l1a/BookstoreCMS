@@ -1,0 +1,44 @@
+.navBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  gap: 30px;
+  padding: 20px;
+  box-shadow: 0 0 20px -10px;
+}
+
+.navBar h2 {
+  display: block;
+  font-size: 20px !important;
+}
+
+.navBar ul {
+  display: flex;
+  gap: 30px;
+}
+
+.navBar li {
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .navBar {
+    justify-content: flex-start;
+    gap: 50px;
+    padding: 20px 10vw;
+  }
+
+  .navBar a {
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Cantarell', sans-serif;
+  }
+
+  .navBar h2 {
+    display: block;
+    font-size: 30px !important;
+  }
+}

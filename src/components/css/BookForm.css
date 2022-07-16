@@ -1,0 +1,20 @@
+.book-form {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.book-form input {
+  height: 30px;
+  outline: none;
+  border: solid 1px lightgray;
+}
+
+@media (min-width: 768px) {
+  .book-form {
+    flex-direction: row;
+    align-items: stretch;
+    padding: 0 10vw;
+  }
+}

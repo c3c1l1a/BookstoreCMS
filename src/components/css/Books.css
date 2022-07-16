@@ -1,0 +1,12 @@
+.books {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+@media (min-width: 786px) {
+  .books {
+    padding: 5vw 10vw;
+  }
+}
