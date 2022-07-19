@@ -1,7 +1,7 @@
 const ADD = 'books/ADD';
 const REMOVE = 'books/REMOVE';
 
-export default function reducer( books = [], action) {
+export default function booksReducer( books = [], action) {
 	switch (action.type){
 		case ADD: 
 			return [...books, action.book];
