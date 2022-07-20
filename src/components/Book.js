@@ -1,8 +1,17 @@
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { removeBook } from '../redux/books/books';
+
 import './css/Book.css';
 
 const Book = (props) => {
   const { book } = props;
+  const dispatch = useDispatch();
+
+  const onClick = (e) => {
+    e.preventDefault();
+    dispatch(removeBook(book.id));
+  };
 
   return (
     <li className="book">
@@ -13,7 +22,7 @@ const Book = (props) => {
       </div>
       <div className="action-buttons">
         <button type="submit">Comments</button>
-        <button type="submit">Remove</button>
+        <button type="submit" onClick={onClick}>Remove</button>
         <button type="submit">Edit</button>
       </div>
       <div className="completion">

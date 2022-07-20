@@ -46,7 +46,7 @@ export default function booksReducer(books = defaultState, action) {
 
       }];
     case REMOVE:
-      return books.filter((book) => action.book !== book);
+      return books.filter((book) => action.bookId !== book.id);
     default:
       return books;
   }
@@ -59,9 +59,9 @@ export function addBook(book) {
   };
 }
 
-export function removeBook(book) {
+export function removeBook(bookId) {
   return {
     type: REMOVE,
-    book,
+    bookId,
   };
 }

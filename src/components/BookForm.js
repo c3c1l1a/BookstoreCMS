@@ -20,7 +20,7 @@ const BookForm = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (state.title.trim()) {
+    if (state.title.trim() && state.author.trim()) {
       dispatch(addBook({ title: state.title, author: state.author }));
       setState({
         title: '',
