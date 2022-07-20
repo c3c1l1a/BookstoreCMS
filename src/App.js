@@ -14,7 +14,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Books books={state.books} />} />
-        <Route path="categories/*" element={<Categories />} />
+        <Route path="categories/*" element={<Categories categories={state.categories} />} />
       </Routes>
     </div>
   );
