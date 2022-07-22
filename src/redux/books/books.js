@@ -7,6 +7,8 @@ const ADD = 'books/ADD/';
 const REMOVE = 'books/REMOVE';
 const FULFIL_ADD = 'books/ADD/fulfilled';
 const FULFIL_REMOVE = 'books/REMOVE/fulfilled'
+const GET_ALL = 'books/GET_ALL';
+const FULFIL_GET_ALL = 'books/GET_ALL/fulfilled';
 
 const defaultState = [];
 
@@ -40,6 +42,28 @@ export default function booksReducer(state = defaultState, action) {
 
       state.filter((book) => action.bookId !== book.id);
     }
+    case GET_ALL: {
+      return state;
+    }
+    case FULFIL_GET_ALL: {
+      if (action.payload){
+        const allItems = Object.entries(action.payload).map((item) => {
+          const newItem = {
+            id: item[0],
+            title: item[1][0].title,
+            category: item[1][0].category,
+            author: item[1][0].author,
+            comments: [],
+            percentageCompleted: 0,
+            currentChapter: '',
+          };
+          return newItem;
+
+        });
+        return allItems;
+      }
+      
+    }
     default:
       return state;
   }
@@ -70,4 +94,17 @@ export const removeBook = createAsyncThunk(
       payload: response.data
     })
   },
+);
+
+export const getAllBooks = createAsyncThunk(
+  GET_ALL, 
+  async (appId, thunkAPI) => {
+    console.log(appId);
+    const response = await BookService.getAllBooks(appId);
+    thunkAPI.dispatch({
+      type: FULFIL_GET_ALL,
+      payload: response.data
+    });
+  }
+
 );
