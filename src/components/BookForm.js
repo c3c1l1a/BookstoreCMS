@@ -1,9 +1,10 @@
+/* eslint-disable*/
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/books';
 import './css/BookForm.css';
 
-const BookForm = () => {
+const BookForm = ({ appId }) => {
   const dispatch = useDispatch();
   const [state, setState] = useState({
     title: '',
@@ -21,7 +22,7 @@ const BookForm = () => {
     e.preventDefault();
 
     if (state.title.trim() && state.author.trim()) {
-      dispatch(addBook({ title: state.title, author: state.author }));
+      dispatch(addBook({ title: state.title, author: state.author, appId }));
       setState({
         title: '',
         author: '',

@@ -1,10 +1,11 @@
+/* eslint-disable */
 import PropTypes from 'prop-types';
 import Book from './Book';
 import './css/Books.css';
 import BookForm from './BookForm';
 
 const Books = (props) => {
-  const { books } = props;
+  const { appId, books } = props;
 
   return (
     <div>
@@ -12,11 +13,11 @@ const Books = (props) => {
         {books.map((book) => (
           <Book
             key={book.id}
-            book={book}
+            book={book}   
           />
         ))}
       </ul>
-      <BookForm />
+      <BookForm appId={appId}/>
     </div>
   );
 };
