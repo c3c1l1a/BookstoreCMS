@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { removeBook } from '../redux/books/books';
@@ -43,12 +42,14 @@ const Book = (props) => {
 
 Book.defaultProps = {
   book: {},
+  appId: '',
 };
 
 Book.propTypes = {
   book: PropTypes.objectOf(PropTypes.oneOfType(
     [PropTypes.string, PropTypes.number, PropTypes.array],
   )),
+  appId: PropTypes.string,
 };
 
 export default Book;

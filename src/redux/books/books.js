@@ -1,12 +1,10 @@
-/* eslint-disable */
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
 import BookService from '../../services/BookstoreService';
 
 const ADD = 'books/ADD/';
 const REMOVE = 'books/REMOVE';
 const FULFIL_ADD = 'books/ADD/fulfilled';
-const FULFIL_REMOVE = 'books/REMOVE/fulfilled'
+const FULFIL_REMOVE = 'books/REMOVE/fulfilled';
 const GET_ALL = 'books/GET_ALL';
 const FULFIL_GET_ALL = 'books/GET_ALL/fulfilled';
 
@@ -36,21 +34,19 @@ export default function booksReducer(state = defaultState, action) {
       return [...state, newItem];
     }
     case FULFIL_REMOVE: {
-      if (action.payload){
+      if (action.payload) {
         const serverExistingItems = Object.entries(action.payload).map((item) => item[0]);
         const stateExstingItems = state.map((item) => item.id);
-        const removedItem = stateExstingItems.filter(item => !serverExistingItems.includes(item));
-        console.log(removedItem[0]);
-
+        const removedItem = stateExstingItems.filter((item) => !serverExistingItems.includes(item));
         return state.filter((book) => book.id !== removedItem[0]);
       }
-      
+      return state;
     }
     case GET_ALL: {
       return state;
     }
     case FULFIL_GET_ALL: {
-      if (action.payload){
+      if (action.payload) {
         const allItems = Object.entries(action.payload).map((item) => {
           const newItem = {
             id: item[0],
@@ -62,10 +58,10 @@ export default function booksReducer(state = defaultState, action) {
             currentChapter: '',
           };
           return newItem;
-
         });
         return allItems;
-      } 
+      }
+      return state;
     }
     default:
       return state;
@@ -89,25 +85,23 @@ export const addBook = createAsyncThunk(
 export const removeBook = createAsyncThunk(
   REMOVE,
   async (data, thunkAPI) => {
-    const [book, appId] = data;
+    const appId = data[1];
     await BookService.removeBook(data);
     const response = await BookService.getAllBooks(appId);
     thunkAPI.dispatch({
       type: FULFIL_REMOVE,
-      payload: response.data
-    })
+      payload: response.data,
+    });
   },
 );
 
 export const getAllBooks = createAsyncThunk(
-  GET_ALL, 
+  GET_ALL,
   async (appId, thunkAPI) => {
-    console.log(appId);
     const response = await BookService.getAllBooks(appId);
     thunkAPI.dispatch({
       type: FULFIL_GET_ALL,
-      payload: response.data
+      payload: response.data,
     });
-  }
-
+  },
 );

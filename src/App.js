@@ -1,9 +1,6 @@
-/* eslint-disable */
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import BookstoreService from './services/BookstoreService';
 import { getAllBooks } from './redux/books/books';
 import Books from './components/Books';
 import Categories from './components/Categories';
