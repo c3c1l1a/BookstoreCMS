@@ -1,4 +1,3 @@
-/* eslint-disable */
 import PropTypes from 'prop-types';
 import Book from './Book';
 import './css/Books.css';
@@ -13,23 +12,25 @@ const Books = (props) => {
         {books.map((book) => (
           <Book
             key={book.id}
-            book={book}   
+            book={book}
           />
         ))}
       </ul>
-      <BookForm appId={appId}/>
+      <BookForm appId={appId} />
     </div>
   );
 };
 
 Books.defaultProps = {
   books: [],
+  appId: '',
 };
 
 Books.propTypes = {
   books: PropTypes.arrayOf(PropTypes.oneOfType(
     [PropTypes.object],
   )),
+  appId: PropTypes.string,
 };
 
 export default Books;

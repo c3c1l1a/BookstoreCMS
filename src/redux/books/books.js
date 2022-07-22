@@ -1,14 +1,10 @@
-/* eslint-disable */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 import BookService from '../../services/BookstoreService';
 
 const ADD = 'books/ADD/';
 const REMOVE = 'books/REMOVE';
-
 const FULFILLED = 'books/ADD/fulfilled';
-const PENDING = 'books/ADD/pending';
-const REJECTED = 'books/ADD/rejected'
 
 const defaultState = [
   {
@@ -41,17 +37,16 @@ const defaultState = [
 ];
 
 export default function booksReducer(state = defaultState, action) {
-  
   switch (action.type) {
-    case PENDING:
-      return state;
     case ADD:
       return state;
     case REMOVE:
       return state.filter((book) => action.bookId !== book.id);
-    case FULFILLED:
-      let existingItems = state.map(item => item.id);
-      const newItemData = Object.entries(action.payload).filter((item)=> !existingItems.includes(item[0]))[0];
+    case FULFILLED: {
+      const existingItems = state.map((item) => item.id);
+      const newItemData = Object
+        .entries(action.payload)
+        .filter((item) => !existingItems.includes(item[0]))[0];
       const newItem = {
         id: newItemData[0],
         title: newItemData[1][0].title,
@@ -63,23 +58,23 @@ export default function booksReducer(state = defaultState, action) {
       };
 
       return [...state, newItem];
+    }
     default:
       return state;
   }
 }
 
-
 export const addBook = createAsyncThunk(
   ADD,
-  async (book,   thunkAPI) => {
-      await BookService.postNewBook(book);
-      const response = await BookService.getAllBooks(book.appId);
-      thunkAPI.dispatch({
-        type: FULFILLED,
-        payload: response.data
-      })
+  async (book, thunkAPI) => {
+    await BookService.postNewBook(book);
+    const response = await BookService.getAllBooks(book.appId);
+    thunkAPI.dispatch({
+      type: FULFILLED,
+      payload: response.data,
+    });
 
-      return await response.data;
+    return response.data;
   },
 );
 

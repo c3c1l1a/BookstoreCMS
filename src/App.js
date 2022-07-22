@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -12,15 +11,11 @@ import './components/css/reset.css';
 const App = () => {
   const state = useSelector((state) => state);
   const [appId, setAppId] = useState();
-  
 
-  useEffect(() => {
-    return () => BookstoreService.createApp()
-      .then(res => {
-        setAppId(res.data);
-      });
-  }, []);
-
+  useEffect(() => () => BookstoreService.createApp()
+    .then((res) => {
+      setAppId(res.data);
+    }), []);
 
   return (
     <div className="app">
@@ -32,14 +27,5 @@ const App = () => {
     </div>
   );
 };
-
-// export const getAllBooks = createAsyncThunk(
-//   FULFILLED, 
-//   async (appId) => {
-//     console.log('dfkajdkfkad');
-//     const response = await BookService.getAllBooks(appId);
-//     return response.data
-//   }
-// );
 
 export default App;
