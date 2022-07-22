@@ -3,14 +3,16 @@ import http from './BookstoreAPI';
 const createApp = () => http.post('/apps');
 
 const postNewBook = (data) => {
-  const { title, author, appId } = data;
+  const {
+    title, author, bookId, appId,
+  } = data;
   const book = {
-    item_id: '1',
+    item_id: bookId,
     title,
     author,
     category: 'fiction',
   };
-  console.log(title);
+  console.log(book);
   return http.post(`/apps/${appId}/books`, book);
 };
 

@@ -1,8 +1,10 @@
 /* eslint-disable*/
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/books';
 import './css/BookForm.css';
+
 
 const BookForm = ({ appId }) => {
   const dispatch = useDispatch();
@@ -18,11 +20,11 @@ const BookForm = ({ appId }) => {
     });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     if (state.title.trim() && state.author.trim()) {
-      dispatch(addBook({ title: state.title, author: state.author, appId }));
+      const data = await dispatch(addBook({ title: state.title, author: state.author, bookId: uuidv4(), appId }));
       setState({
         title: '',
         author: '',

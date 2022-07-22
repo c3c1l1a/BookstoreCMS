@@ -12,12 +12,14 @@ import './components/css/reset.css';
 const App = () => {
   const state = useSelector((state) => state);
   const [appId, setAppId] = useState();
+  
 
   useEffect(() => {
-    return () => BookstoreService.createApp()
+    return () => setAppId('s6n8xuf2HaDgoDDmffFQ');
+    /*return () => BookstoreService.createApp()
       .then(res => {
         setAppId(res.data);
-      });
+      });*/
   }, []);
 
   return (
