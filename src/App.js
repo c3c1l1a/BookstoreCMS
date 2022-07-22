@@ -19,10 +19,6 @@ const App = () => {
     setAppId('iRtVG1ZXVKkAdoYaZMbO');
     await dispatch(getAllBooks('iRtVG1ZXVKkAdoYaZMbO'));
   }, []);
-  /*useEffect(() => () => BookstoreService.createApp()
-    .then((res) => {
-      setAppId(res.data);
-    }), []);*/
 
   return (
     <div className="app">

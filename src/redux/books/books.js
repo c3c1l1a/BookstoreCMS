@@ -36,11 +36,15 @@ export default function booksReducer(state = defaultState, action) {
       return [...state, newItem];
     }
     case FULFIL_REMOVE: {
-      console.log(action.payload);
-      const ServerExistingItems = Object.entries(action.payload).map((item) => item[0]);
-      const stateExstingItems = state.map((item) => item.id);
+      if (action.payload){
+        const serverExistingItems = Object.entries(action.payload).map((item) => item[0]);
+        const stateExstingItems = state.map((item) => item.id);
+        const removedItem = stateExstingItems.filter(item => !serverExistingItems.includes(item));
+        console.log(removedItem[0]);
 
-      state.filter((book) => action.bookId !== book.id);
+        return state.filter((book) => book.id !== removedItem[0]);
+      }
+      
     }
     case GET_ALL: {
       return state;
@@ -61,8 +65,7 @@ export default function booksReducer(state = defaultState, action) {
 
         });
         return allItems;
-      }
-      
+      } 
     }
     default:
       return state;
