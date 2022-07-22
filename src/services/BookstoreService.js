@@ -12,12 +12,14 @@ const postNewBook = (data) => {
     author,
     category: 'fiction',
   };
-  console.log(book);
   return http.post(`/apps/${appId}/books`, book);
 };
+
+const getAllBooks = (appId) => http.get(`/apps/${appId}/books`);
 
 const BookService = {
   createApp,
   postNewBook,
+  getAllBooks,
 };
 export default BookService;

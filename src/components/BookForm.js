@@ -24,7 +24,7 @@ const BookForm = ({ appId }) => {
     e.preventDefault();
 
     if (state.title.trim() && state.author.trim()) {
-      const data = await dispatch(addBook({ title: state.title, author: state.author, bookId: uuidv4(), appId }));
+      await dispatch(addBook({ title: state.title, author: state.author, bookId: uuidv4(), appId }));
       setState({
         title: '',
         author: '',

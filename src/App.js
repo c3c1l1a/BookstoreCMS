@@ -22,6 +22,7 @@ const App = () => {
       });*/
   }, []);
 
+
   return (
     <div className="app">
       <Navbar />
@@ -32,5 +33,14 @@ const App = () => {
     </div>
   );
 };
+
+// export const getAllBooks = createAsyncThunk(
+//   FULFILLED, 
+//   async (appId) => {
+//     console.log('dfkajdkfkad');
+//     const response = await BookService.getAllBooks(appId);
+//     return response.data
+//   }
+// );
 
 export default App;

@@ -40,27 +40,47 @@ const defaultState = [
   },
 ];
 
-export default function booksReducer(books = defaultState, action) {
+export default function booksReducer(state = defaultState, action) {
+  
   switch (action.type) {
+    case PENDING:
+      return state;
     case ADD:
-      console.log(action.payload);
-      return [...books, action.payload];
+      return state;
     case REMOVE:
-      return books.filter((book) => action.bookId !== book.id);
+      return state.filter((book) => action.bookId !== book.id);
+    case FULFILLED:
+      const allItems = Object.entries(action.payload).map((item)=> {
+        const itemData = {
+          id: item[0],
+          title: item[1][0].title,
+          author: item[1][0].author,
+          category: item[1][0].category,
+          comments: [],
+          percentageCompleted: 0,
+          currentChapter: '',
+        } 
+        return itemData;
+      });
+
+      return [...state, ...allItems];
     default:
-      return books;
+      return state;
   }
 }
+
 
 export const addBook = createAsyncThunk(
   ADD,
   async (book,   thunkAPI) => {
-      const response = await BookService.postNewBook(book);
+      await BookService.postNewBook(book);
+      const response = await BookService.getAllBooks(book.appId);
       thunkAPI.dispatch({
-        type: ADD,
-        payload: response.data,
-      });
-      return Promise.resolve(response.data);
+        type: FULFILLED,
+        payload: response.data
+      })
+
+      return await response.data;
   },
 );
 
