@@ -13,6 +13,7 @@ const Books = (props) => {
           <Book
             key={book.id}
             book={book}
+            appId={appId}
           />
         ))}
       </ul>

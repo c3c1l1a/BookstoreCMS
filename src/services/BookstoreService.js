@@ -1,3 +1,4 @@
+/* eslint-disable */
 import http from './BookstoreAPI';
 
 const createApp = () => http.post('/apps');
@@ -15,11 +16,18 @@ const postNewBook = (data) => {
   return http.post(`/apps/${appId}/books`, book);
 };
 
+const removeBook = (data) => {
+  const [book, appId] = data;
+  console.log(book.id, appId);
+  return http.delete(`/apps/${appId}/books/${book.id}`);
+};
+
 const getAllBooks = (appId) => http.get(`/apps/${appId}/books`);
 
 const BookService = {
   createApp,
   postNewBook,
   getAllBooks,
+  removeBook
 };
 export default BookService;
