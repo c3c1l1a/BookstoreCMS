@@ -15,11 +15,10 @@ const App = () => {
   
 
   useEffect(() => {
-    return () => setAppId('s6n8xuf2HaDgoDDmffFQ');
-    /*return () => BookstoreService.createApp()
+    return () => BookstoreService.createApp()
       .then(res => {
         setAppId(res.data);
-      });*/
+      });
   }, []);
 
 

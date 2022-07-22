@@ -50,20 +50,19 @@ export default function booksReducer(state = defaultState, action) {
     case REMOVE:
       return state.filter((book) => action.bookId !== book.id);
     case FULFILLED:
-      const allItems = Object.entries(action.payload).map((item)=> {
-        const itemData = {
-          id: item[0],
-          title: item[1][0].title,
-          author: item[1][0].author,
-          category: item[1][0].category,
-          comments: [],
-          percentageCompleted: 0,
-          currentChapter: '',
-        } 
-        return itemData;
-      });
+      let existingItems = state.map(item => item.id);
+      const newItemData = Object.entries(action.payload).filter((item)=> !existingItems.includes(item[0]))[0];
+      const newItem = {
+        id: newItemData[0],
+        title: newItemData[1][0].title,
+        category: newItemData[1][0].category,
+        author: newItemData[1][0].author,
+        comments: [],
+        percentageCompleted: 0,
+        currentChapter: '',
+      };
 
-      return [...state, ...allItems];
+      return [...state, newItem];
     default:
       return state;
   }
