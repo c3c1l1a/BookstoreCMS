@@ -23,6 +23,7 @@
 .details p {
   color: #4386bf;
   font-family: 'RobotoSlab', sans-serif;
+  font-weight: 100;
 }
 
 .details {
@@ -50,6 +51,7 @@
   font-family: 'RobotoSlab', sans-serif;
   color: #4386bf;
   padding: 0;
+  font-weight: 100;
 }
 
 
@@ -153,24 +155,32 @@
     grid-template-columns: repeat(4, 1fr);
     padding: 20px;
   }
-
+  .details {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    gap:  5px;
+  }
   .action-buttons {
     grid-column: 1 / 2;
-    grid-row: 2 / 3;
+    grid-row: 3 / 4;
     justify-content: flex-start;
+
+    align-items: center;
   }
 
   .completion {
     grid-column: 3/4;
-    grid-row: 2/3;
+    grid-row: 1/4;
+    flex-direction: row;
   }
 
   .current-chapter {
     grid-column: 4 / 5;
+    grid-row: 1/ 3;
   }
 
   .update-progress {
     grid-column: 4/5;
-    grid-row: 2 / 3;
+    grid-row: 3 / 4;
   }
 }
