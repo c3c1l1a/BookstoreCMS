@@ -13,6 +13,9 @@
 .navBar h2 {
   display: block;
   font-size: 20px !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #0290ff;
 }
 
 .navBar ul {
@@ -22,23 +25,53 @@
 
 .navBar li {
   list-style: none;
+  font-family: 'Montserrat', sans-serif;
+  font-family: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #121212;
 }
 
 @media (min-width: 768px) {
   .navBar {
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 50px;
     padding: 20px 10vw;
   }
 
+  .navBar div {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
   .navBar a {
     text-decoration: none;
-    font-weight: bold;
+    color: black;
     font-family: 'Cantarell', sans-serif;
+    opacity: 0.5;
+  }
+
+  .navBar a:active,
+  .navBar a:hover,
+  .navBar a:focus-visible {
+    opacity: 1;
   }
 
   .navBar h2 {
     display: block;
     font-size: 30px !important;
+  }
+
+  .profile-icon {
+    fill: #0290ff;
+    stroke: #0290ff;
+    stroke-width: 5;
+    stroke-linecap: round;
+    border: solid #e8e8e8 3px;
+    padding: 2px;
+    border-radius: 200px;
+    box-sizing: content-box;
+    transform: scale(0.7);
   }
 }

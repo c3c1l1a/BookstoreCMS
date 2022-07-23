@@ -5,16 +5,75 @@
   padding: 10px;
 }
 
+.book-form h4 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0.5;
+  font-size: 1.25rem;
+}
+
+.form-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-items button {
+  background: #0290ff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'RobotoSlab', sans-serif;
+  padding: 15px 20px;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+}
+
 .book-form input {
   height: 30px;
   outline: none;
   border: solid 1px lightgray;
+  padding: 10px;
+}
+
+.category {
+  padding: 10px;
+  opacity: 0.5;
+  background: transparent;
 }
 
 @media (min-width: 768px) {
   .book-form {
-    flex-direction: row;
+    flex-direction: column;
+    gap: 30px;
     align-items: stretch;
     padding: 0 10vw;
+  }
+
+  .form-items {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form-items .title {
+    width: 40%;
+    height: 100%;
+  }
+
+  .form-items .author {
+    width: 40%;
+    height: 100%;
+  }
+
+  .form-items select {
+    width: 20%;
+  }
+
+  .form-items button {
+    width: 10%;
+    outline-color: blue;
   }
 }

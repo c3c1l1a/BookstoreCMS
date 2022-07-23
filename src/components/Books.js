@@ -7,7 +7,7 @@ const Books = (props) => {
   const { appId, books } = props;
 
   return (
-    <div>
+    <div className="main">
       <ul className="books">
         {books.map((book) => (
           <Book
@@ -17,6 +17,7 @@ const Books = (props) => {
           />
         ))}
       </ul>
+      <hr />
       <BookForm appId={appId} />
     </div>
   );
