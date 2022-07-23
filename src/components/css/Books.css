@@ -1,9 +1,15 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
 .books {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 10px;
 }
+
 
 @media (min-width: 786px) {
   .books {
