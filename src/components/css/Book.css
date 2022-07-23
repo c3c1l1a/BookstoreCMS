@@ -132,8 +132,6 @@
   grid-row: 1/4;
 }
 
-
-
 .percentageChart {
   transform: rotate(-90deg);
   transition: all 1s ease-in-out;
@@ -186,7 +184,7 @@
     grid-column: 4/5;
     grid-row: 1/4;
     flex-direction: row;
-    padding: 0px 200px;
+    padding: 0 200px;
   }
 
   .completion::after {

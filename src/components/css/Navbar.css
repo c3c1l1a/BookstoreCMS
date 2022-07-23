@@ -32,7 +32,6 @@
   color: #121212;
 }
 
-
 @media (min-width: 768px) {
   .navBar {
     justify-content: space-between;
@@ -42,7 +41,7 @@
 
   .navBar div {
     display: flex;
-    gap:  40px;
+    gap: 40px;
     align-items: center;
   }
 
@@ -53,7 +52,9 @@
     opacity: 0.5;
   }
 
-  .navBar a:active, .navBar a:hover , .navBar a:focus-visible {
+  .navBar a:active,
+  .navBar a:hover,
+  .navBar a:focus-visible {
     opacity: 1;
   }
 
