@@ -26,14 +26,26 @@ const Book = (props) => {
         <button type="submit">Edit</button>
       </div>
       <div className="completion">
-        <p>
-          {book.percentageCompleted}
-          % Completed
+        <svg
+          className="percentageChart"
+          style={{
+            strokeDasharray: `${Math.floor(Math.random() * (150 - 100) + 100)} 999`,
+          }}
+          viewbox="0 0 100 100"
+          width="80"
+          height="80"
+          data-percent="100"
+        >
+          <circle cx="40" cy="40" r="30" />
+        </svg>
+        <p className="percentageInfo">
+          <span className="num">78%</span>
+          <span>Completed</span>
         </p>
       </div>
       <div className="current-chapter">
         <h4>Current Chapter</h4>
-        <p>{book.currentChapter}</p>
+        <p>Not started</p>
       </div>
       <button type="submit" className="update-progress">Update progress</button>
     </li>
