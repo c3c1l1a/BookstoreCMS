@@ -4,6 +4,7 @@
   flex-direction: column;
   padding: 10px;
 }
+
 .book-form h4 {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
@@ -29,6 +30,7 @@
   outline: none;
   border-radius: 3px;
 }
+
 .book-form input {
   height: 30px;
   outline: none;
@@ -41,7 +43,6 @@
   opacity: 0.5;
   background: transparent;
 }
-
 
 @media (min-width: 768px) {
   .book-form {
@@ -56,6 +57,7 @@
     justify-content: space-between;
     align-items: center;
   }
+
   .form-items .title {
     width: 40%;
     height: 100%;
