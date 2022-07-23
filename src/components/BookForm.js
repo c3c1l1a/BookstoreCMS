@@ -35,9 +35,13 @@ const BookForm = ({ appId }) => {
 
   return (
     <form className="book-form" onSubmit={onSubmit}>
-      <input type="text" placeholder="Book Title..." name="title" value={state.title} onChange={onChange} />
-      <input type="text" placeholder="Author..." name="author" value={state.author} onChange={onChange} />
-      <button type="submit">ADD BOOK</button>
+      <h4>ADD NEW BOOK</h4>
+      <div className="form-items">
+        <input type="text" placeholder="Book Title..." name="title" value={state.title} onChange={onChange} />
+        <input type="text" placeholder="Author..." name="author" value={state.author} onChange={onChange} />
+        <button type="submit">ADD BOOK</button>
+      </div>
+
     </form>
   );
 };

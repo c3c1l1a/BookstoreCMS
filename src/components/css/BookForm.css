@@ -4,12 +4,38 @@
   flex-direction: column;
   padding: 10px;
 }
+.book-form h4 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0.5;
+  font-size: 1.25rem;
+}
 
+.form-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-items button {
+  background: #0290ff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'RobotoSlab', sans-serif;
+  padding: 15px 20px;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+}
 .book-form input {
   height: 30px;
   outline: none;
   border: solid 1px lightgray;
+  padding: 10px;
 }
+
 
 @media (min-width: 768px) {
   .book-form {
