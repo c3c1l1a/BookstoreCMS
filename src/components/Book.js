@@ -5,12 +5,12 @@ import { removeBook } from '../redux/books/books';
 import './css/Book.css';
 
 const Book = (props) => {
-  const { book } = props;
+  const { book, appId } = props;
   const dispatch = useDispatch();
 
   const onClick = (e) => {
     e.preventDefault();
-    dispatch(removeBook(book.id));
+    dispatch(removeBook([book, appId]));
   };
 
   return (
@@ -42,12 +42,14 @@ const Book = (props) => {
 
 Book.defaultProps = {
   book: {},
+  appId: '',
 };
 
 Book.propTypes = {
   book: PropTypes.objectOf(PropTypes.oneOfType(
     [PropTypes.string, PropTypes.number, PropTypes.array],
   )),
+  appId: PropTypes.string,
 };
 
 export default Book;

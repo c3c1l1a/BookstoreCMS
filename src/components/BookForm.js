@@ -1,9 +1,11 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/books';
 import './css/BookForm.css';
 
-const BookForm = () => {
+const BookForm = ({ appId }) => {
   const dispatch = useDispatch();
   const [state, setState] = useState({
     title: '',
@@ -17,11 +19,13 @@ const BookForm = () => {
     });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     if (state.title.trim() && state.author.trim()) {
-      dispatch(addBook({ title: state.title, author: state.author }));
+      await dispatch(addBook({
+        title: state.title, author: state.author, bookId: uuidv4(), appId,
+      }));
       setState({
         title: '',
         author: '',
@@ -36,6 +40,14 @@ const BookForm = () => {
       <button type="submit">ADD BOOK</button>
     </form>
   );
+};
+
+BookForm.defaultProps = {
+  appId: '',
+};
+
+BookForm.propTypes = {
+  appId: PropTypes.string,
 };
 
 export default BookForm;

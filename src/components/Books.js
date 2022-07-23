@@ -4,7 +4,7 @@ import './css/Books.css';
 import BookForm from './BookForm';
 
 const Books = (props) => {
-  const { books } = props;
+  const { appId, books } = props;
 
   return (
     <div>
@@ -13,22 +13,25 @@ const Books = (props) => {
           <Book
             key={book.id}
             book={book}
+            appId={appId}
           />
         ))}
       </ul>
-      <BookForm />
+      <BookForm appId={appId} />
     </div>
   );
 };
 
 Books.defaultProps = {
   books: [],
+  appId: '',
 };
 
 Books.propTypes = {
   books: PropTypes.arrayOf(PropTypes.oneOfType(
     [PropTypes.object],
   )),
+  appId: PropTypes.string,
 };
 
 export default Books;
