@@ -36,11 +36,42 @@
   padding: 10px;
 }
 
+.category {
+  padding: 10px;
+  opacity: 0.5;
+  background: transparent;
+}
+
 
 @media (min-width: 768px) {
   .book-form {
-    flex-direction: row;
+    flex-direction: column;
+    gap: 30px;
     align-items: stretch;
     padding: 0 10vw;
+  }
+
+  .form-items {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .form-items .title {
+    width: 40%;
+    height: 100%;
+  }
+
+  .form-items .author {
+    width: 40%;
+    height: 100%;
+  }
+
+  .form-items select {
+    width: 20%;
+  }
+
+  .form-items button {
+    width: 10%;
+    outline-color: blue;
   }
 }

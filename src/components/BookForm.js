@@ -37,8 +37,13 @@ const BookForm = ({ appId }) => {
     <form className="book-form" onSubmit={onSubmit}>
       <h4>ADD NEW BOOK</h4>
       <div className="form-items">
-        <input type="text" placeholder="Book Title..." name="title" value={state.title} onChange={onChange} />
-        <input type="text" placeholder="Author..." name="author" value={state.author} onChange={onChange} />
+        <input className="title" type="text" placeholder="Book Title..." name="title" value={state.title} onChange={onChange} />
+        <input className="author" type="text" placeholder="Author..." name="author" value={state.author} onChange={onChange} />
+        <select className="category" name="category">
+          <option value="fiction">Fiction</option>
+          <option value="self help">Self help</option>
+          <option value="science">Science</option>
+        </select>
         <button type="submit">ADD BOOK</button>
       </div>
 
