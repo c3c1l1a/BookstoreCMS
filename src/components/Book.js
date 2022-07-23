@@ -40,7 +40,7 @@ const Book = (props) => {
         </svg>
         <p className="percentageInfo">
           <span className="num">78%</span>
-          <span>Completed</span>
+          <span className="det">Completed</span>
         </p>
       </div>
       <div className="current-chapter">
