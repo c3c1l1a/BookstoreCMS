@@ -13,6 +13,9 @@
 .navBar h2 {
   display: block;
   font-size: 20px !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #0290ff;
 }
 
 .navBar ul {
@@ -22,6 +25,12 @@
 
 .navBar li {
   list-style: none;
+  font-family: 'Montserrat', sans-serif;
+  font-family: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #121212;
+
 }
 
 @media (min-width: 768px) {
