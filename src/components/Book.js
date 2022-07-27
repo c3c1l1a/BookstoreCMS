@@ -1,3 +1,5 @@
+/* eslint-disable */
+import{ useLayoutEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { removeBook } from '../redux/books/books';
@@ -7,6 +9,19 @@ import './css/Book.css';
 const Book = (props) => {
   const { book, appId } = props;
   const dispatch = useDispatch();
+  const ref = useRef(null);
+  const lastBounds = useRef(null)
+  
+
+  useLayoutEffect(() => {
+    
+    if (!ref.current) return;
+    const bounds = ref.current.getBoundingClientRect();
+    lastBounds.current = bounds;
+    console.log(ref.current);
+
+    //console.log(ref, lastBounds, bounds);
+  }, []);
 
   const onClick = (e) => {
     e.preventDefault();
@@ -14,7 +29,7 @@ const Book = (props) => {
   };
 
   return (
-    <li className="book">
+    <li ref={ref} className="book">
       <div className="details">
         <h3>{book.category}</h3>
         <h2>{book.title}</h2>
